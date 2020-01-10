@@ -1,0 +1,136 @@
+﻿<Window x:Class="WpfApp1.PROTOCOL"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="470" Width="770" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown"
+        Icon="icon.png" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
+
+    <Border Margin="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                        Direction="300"
+                        BlurRadius="10"
+                        ShadowDepth="3" />
+        </Border.Effect>
+        <Grid Background="LightGray">
+            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="30 20" Source="orda_sosatb.png"/>
+
+            <StackPanel Margin="20 120">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Weight" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
+                    <Label Content="Навеска металла, [кг(г)]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Масса навески металла
+                            </ToolTip>
+                        </Label.ToolTip>
+                    </Label>
+                    <TextBox Name="m" IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="99.2" VerticalAlignment="Top" Width="120"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 10">
+                    <materialDesign:PackIcon Kind="BeakerOutline" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
+                    <Label Content="Объем выделившегося водорода, [м3(л)]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+                      <Label.ToolTip>
+                        <ToolTip>
+                          Объем выделившегося водорода
+                        </ToolTip>
+                      </Label.ToolTip>
+                    </Label>
+                    <TextBox Name="V1" IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="42" VerticalAlignment="Top" Width="120"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Thermometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
+                    <Label Content="Температура опыта, [К]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+                      <Label.ToolTip>
+                        <ToolTip>
+                          Значение температуры написано справа.
+                        </ToolTip>
+                      </Label.ToolTip>
+                    </Label>
+                    <TextBox materialDesign:HintAssist.Hint="Введите температуру..." Name="T"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 10">
+                    <materialDesign:PackIcon Kind="Barometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
+                    <Label Content="Атмосферное давление опыта, [Па]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+                      <Label.ToolTip>
+                        <ToolTip>
+                          Посчитайте давление в паскалях. Значение написано справа.
+                        </ToolTip>
+                      </Label.ToolTip>
+                    </Label>
+                    <TextBox materialDesign:HintAssist.Hint="Введите давление опыта..." Name="Patm" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Water" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
+                    <Label Content="Парциальное давление водяного пара, [Па]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+                      <Label.ToolTip>
+                        <ToolTip>
+                          Значение парциального давления написано справа.
+                            </ToolTip>
+                      </Label.ToolTip>
+                    </Label>
+                    <TextBox materialDesign:HintAssist.Hint="Введите давление водяного пара..." Name="Ph20" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 10">
+                    <materialDesign:PackIcon Kind="AlphaHBoxOutline" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
+                    <Label Content="Парциальное давление водорода, [Па]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+                      <Label.ToolTip>
+                        <ToolTip>
+                          Разность атмосферного и парциального давления.
+                        </ToolTip>
+                      </Label.ToolTip>
+                    </Label>
+                    <TextBox materialDesign:HintAssist.Hint="Введите давление водорода..." Name="Ph" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Grid Height="50" VerticalAlignment="Top" Background="#FF00A8FF">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                                <materialDesign:PackIcon Kind="PeriodicTable" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Button Content="Таблица Менделеева" BorderBrush="{x:Null}" Background="{x:Null}" Click="MenuItem_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="10 0 0 -15" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="260" Height="160" Foreground="#FF00A8FF">
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="TemperatureCelsius" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Text="T(опыта) = 23 °С" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Barometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="P(атм. опыта) = 761 мм рт. ст." Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Ruler" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="1 мм рт. ст. = 133.3 Па" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Water" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="P(водяного пара) = 2808.6 Па" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+
+            <Button Content="Далее" HorizontalAlignment="Right" Margin="30 20" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18" Click="Button_Click"/>
+        </Grid>
+    </Border>
+</Window>

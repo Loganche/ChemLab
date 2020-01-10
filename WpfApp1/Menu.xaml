@@ -1,0 +1,155 @@
+﻿<Window x:Class="WpfApp1.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="620" Width="1020" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown"
+        Icon="icon.png" Closing="Window_Closing"
+        OpacityMask="#FF003AFF" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent" Foreground="White">
+
+    <Window.Resources>
+        <Style TargetType="materialDesign:ColorZone">
+            <Style.Setters>
+                <Setter Property="Button.Foreground" Value="DarkSlateGray" />
+            </Style.Setters>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                    </MultiTrigger.Conditions>
+                  <MultiTrigger.Setters>
+                        <Setter Property="Foreground" Value="#FF263F94"/>
+                        <Setter Property="Background" Value="LightYellow"/>
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+      <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+      <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonApply">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Border Margin="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                              Direction="300"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
+        </Border.Effect>
+
+        <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2">
+            <materialDesign:ColorZone x:Name="textBoxNameColor" Mode="PrimaryLight" CornerRadius="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="330" Height="50">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountOutline" Margin="10 0 10 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Foreground="#FF263F94"/>
+                    <TextBox Name="textBoxName" materialDesign:HintAssist.Hint="Введите имя и фамилию..." FontSize="16" Margin="0 0 0 5" Width="250" Height="35"/>
+                </StackPanel>
+            </materialDesign:ColorZone>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0 0 0 50">
+            <materialDesign:ColorZone Name="textBoxGroupColor" Mode="PrimaryLight" CornerRadius="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="330" Height="50">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountGroupOutline" Margin="10 0 10 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Foreground="#FF263F94"/>
+                    <TextBox Name="textBoxGroup" materialDesign:HintAssist.Hint="Введите номер группы..." FontSize="16" Margin="0 0 0 5" Width="250" Height="35"/>
+                </StackPanel>
+            </materialDesign:ColorZone>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0 0 0 70">
+            <materialDesign:ColorZone Name="textBoxEmailColor" Mode="PrimaryLight" CornerRadius="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="330" Height="50">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="At" Margin="10 0 10 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Foreground="#FF263F94"/>
+                    <TextBox Name="textBoxEmail" materialDesign:HintAssist.Hint="Введите e-mail преподавателя..." FontSize="16" Margin="0 0 0 5" Width="250" Height="35"/>
+                </StackPanel>
+            </materialDesign:ColorZone>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0 0 0 30">
+            <materialDesign:ColorZone Name="ButtonApplyColor" Mode="PrimaryLight" CornerRadius="5" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <Button x:Name="ButtonApply" Content="Подтвердить" FontWeight="Normal" FontSize="16"
+                        Height="35" Width="150"
+                        Background="Transparent" Foreground="Black"
+                        BorderBrush="Transparent"
+                        Click="Button_Click">
+                </Button>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Height="50" VerticalAlignment="Top" Background="#1E88E5">
+            <TextBlock Text="Лабораторная работа №2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Xml" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Button Content="Разработчики" Click="Button_Click_2"/>
+                        </StackPanel>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF263F94">
+            <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button x:Name="ButtonCloseMenu" Height="50" Width="50" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF263F94" Kind="ArrowLeft" Height="25" Width="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Height="50" Width="50" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Margin="-5" Foreground="#FF263F94" Kind="Menu" Height="25" Width="25"/>
+                    </Button>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF00A8FF">
+                    <ListViewItem Height="50">
+                        <StackPanel Orientation="Horizontal">
+                          <materialDesign:PackIcon Kind="Microscope" Margin="5" VerticalAlignment="Center" Height="25" Width="25"/>
+                          <Button x:Name="StartLab" Content="Начать работу" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_1"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="50">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Door" Margin="5" VerticalAlignment="Center" Height="25" Width="25"/>
+                            <Button Content="Выход" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_3"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+    </Border>
+</Window>

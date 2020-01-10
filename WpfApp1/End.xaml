@@ -1,0 +1,106 @@
+﻿<Window x:Class="WpfApp1.End"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="End" Height="420" Width="687"
+        Icon="icon.png" WindowStyle="None"
+        ResizeMode="NoResize" MouseDown="Window_MouseDown"
+        AllowsTransparency="True" Background="Transparent">
+
+    <Border Margin="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                          Direction="300"
+                          BlurRadius="10"
+                          ShadowDepth="3" />
+        </Border.Effect>
+
+        <Grid Background="LightGray"  Loaded="Grid_Loaded">
+
+            <Grid Margin="10 0 0 -15" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="260" Height="80" Foreground="#FF00A8FF">
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Thermometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="T(нулевая) = 273 K" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Barometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="p(нулевое) = 101325 Па" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+
+            <StackPanel Margin="20 100 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Formula_1.png" Height="45">
+                        <Image.ToolTip>
+                            <ToolTip>
+                                Значения p1, V1 и T1 были подсчитаны вами раньше. Эти значения можно найти в протоколе значений в правом верхнем углу.
+                            </ToolTip>
+                        </Image.ToolTip>
+                    </Image>
+                    <TextBox Margin="10 0" materialDesign:HintAssist.Hint="Введите давление водорода..." Name ="V0" Height="23" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 7">
+                    <Image Source="Formula_2.png" Height="40">
+                        <Image.ToolTip>
+                            <ToolTip>
+                                m - масса навески, V(H2) = 11.2 л.
+                            </ToolTip>
+                        </Image.ToolTip>
+                    </Image>
+                    <TextBox Margin="10 0" materialDesign:HintAssist.Hint="Введите эквивалентную молярную массу..." Name="Mek" Height="23" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 7">
+                    <Image Source="Formula_3.png" Height="25">
+                        <Image.ToolTip>
+                            <ToolTip>
+                                Подберите такое целое число z, что z*M(эк) будет близко по значению атомной массе навески металла. ПСХЭ можно найти в правом верхнем углу.
+                            </ToolTip>
+                        </Image.ToolTip>
+                    </Image>
+                    <TextBox Margin="10 0" materialDesign:HintAssist.Hint="Введите молярную массу..." Name="Mat" Height="23" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 7">
+                    <Label Content="Укажите металл: " Foreground="Black">
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Например: H, Cl, F.
+                            </ToolTip>
+                        </Label.ToolTip>
+                    </Label>
+                    <TextBox Margin="10 0" materialDesign:HintAssist.Hint="Введите сокращенное название..." Name="Met" Height="23" TextWrapping="Wrap"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Grid Height="50" VerticalAlignment="Top" Background="#FF00A8FF">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                                <materialDesign:PackIcon Kind="PeriodicTable" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Button Content="(ПСХЭ) Таблица Менделеева" BorderBrush="{x:Null}" Background="{x:Null}" Click="MenuItem_Click_1"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                                <materialDesign:PackIcon Kind="ClipboardTextOutline" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Button Content="Значения" BorderBrush="{x:Null}" Background="{x:Null}" Click="MenuItem_Click_2"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+            </Grid>
+
+            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="20 10" Source="orda_sosatb.png"/>
+            <Button Content="Далее" HorizontalAlignment="Right" Margin="20 10" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18" Click="Button_Click"/>
+        </Grid>
+    </Border>
+</Window>
+
