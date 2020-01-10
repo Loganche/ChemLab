@@ -116,7 +116,7 @@ namespace WpfApp1
 
             Random random = new Random();
 
-            // myMetal = random.Next() % dataTable.Rows.Count;
+            myMetal = random.Next() % dataTable.Rows.Count;
             myMetal = 0;
             this.CreateRenderWindow();
 
