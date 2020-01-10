@@ -118,9 +118,6 @@ namespace WpfApp1
 
             myMetal = random.Next() % dataTable.Rows.Count;
 
-            // CHAANGE
-
-            myMetal = 0;
             this.CreateRenderWindow();
 
             var refreshRate = new TimeSpan(0, 0, 0, 0, 1000 / 60);
