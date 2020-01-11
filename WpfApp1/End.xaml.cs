@@ -61,7 +61,7 @@ namespace WpfApp1
             }
             catch (Exception ignore) { }
 
-            protocolZnach = new ProtocolZnach(myMetal, dataTable, temperature, dav);
+            protocolZnach = new ProtocolZnach(myMetal, dataTable, temperature, dav, davH);
             protocolZnach.Show();
         }
 
@@ -132,7 +132,7 @@ namespace WpfApp1
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            protocolZnach = new ProtocolZnach(myMetal, dataTable, temperature, dav);
+            protocolZnach = new ProtocolZnach(myMetal, dataTable, temperature, dav, davH);
             protocolZnach.Show();
         }
 

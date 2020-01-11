@@ -27,7 +27,7 @@ namespace WpfApp1
 
         public int myMetal = -1;
         public DataTable dataTable = new DataTable();
-        public ProtocolZnach(int _myMetal, DataTable _dataTable, int temperature, double dav)
+        public ProtocolZnach(int _myMetal, DataTable _dataTable, int temperature, double dav, double davH)
         {
             InitializeComponent();
 
@@ -37,6 +37,7 @@ namespace WpfApp1
             this.m.Text = dataTable.Rows[myMetal].ItemArray.GetValue(1).ToString();
             this.V1.Text = dataTable.Rows[myMetal].ItemArray.GetValue(3).ToString();
             this.dav_text.Text = dav.ToString();
+            this.davH_text.Text = davH.ToString();
             this.temperature_text.Text = (273 + temperature).ToString();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
