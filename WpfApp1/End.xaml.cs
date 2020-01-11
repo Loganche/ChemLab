@@ -25,16 +25,20 @@ namespace WpfApp1
         private TableCheck tableCheck;
         private ProtocolZnach protocolZnach;
         public int myMetal = -1;
+        public double dav = -1;
+        public int temperature = -1;
         public DataTable dataTable = new DataTable();
         private CheckData checkData;
         private ChecDataMetal checDataMetal;
 
-        public End(int _myMetal, DataTable _dataTable)
+        public End(int _myMetal, DataTable _dataTable, int _temperature, double _dav)
         {
             InitializeComponent();
 
             myMetal = _myMetal;
             dataTable = _dataTable;
+            temperature = _temperature;
+            dav = _dav;
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -56,7 +60,7 @@ namespace WpfApp1
             }
             catch (Exception ignore) { }
 
-            protocolZnach = new ProtocolZnach(myMetal, dataTable);
+            protocolZnach = new ProtocolZnach(myMetal, dataTable, temperature, dav);
             protocolZnach.Show();
         }
 
@@ -127,7 +131,7 @@ namespace WpfApp1
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            protocolZnach = new ProtocolZnach(myMetal, dataTable);
+            protocolZnach = new ProtocolZnach(myMetal, dataTable, temperature, dav);
             protocolZnach.Show();
         }
 
