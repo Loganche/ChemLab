@@ -106,7 +106,7 @@
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="TemperatureCelsius" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            <TextBlock Text="T(опыта) = 23 °С" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
+                            <TextBlock Name="temperature_text" Text="T(опыта) = 23 °С" Margin="5 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="240"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="40">

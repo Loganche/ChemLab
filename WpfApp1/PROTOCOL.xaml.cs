@@ -35,6 +35,7 @@ namespace WpfApp1
 
             this.m.Text = dataTable.Rows[myMetal].ItemArray.GetValue(1).ToString();
             this.V1.Text = dataTable.Rows[myMetal].ItemArray.GetValue(3).ToString();
+            this.temperature_text.Text = "T(опыта) = " + temperature.ToString() + " °С";
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
