@@ -21,7 +21,7 @@
         </Border.Effect>
 
         <Grid Background="LightGray">
-            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="10,0,0,10" Source="orda_sosatb.png"/>
+            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="10,0,0,10" Source="logo.png"/>
 
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 20">

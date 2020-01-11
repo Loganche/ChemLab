@@ -18,7 +18,7 @@
                         ShadowDepth="3" />
         </Border.Effect>
         <Grid Background="LightGray">
-            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="30 20" Source="orda_sosatb.png"/>
+            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="30 20" Source="logo.png"/>
 
             <StackPanel Margin="20 120">
                 <StackPanel Orientation="Horizontal">
@@ -35,55 +35,55 @@
                 <StackPanel Orientation="Horizontal" Margin="0 10">
                     <materialDesign:PackIcon Kind="BeakerOutline" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
                     <Label Content="Объем выделившегося водорода, [м3(л)]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-                      <Label.ToolTip>
-                        <ToolTip>
-                          Объем выделившегося водорода
-                        </ToolTip>
-                      </Label.ToolTip>
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Объем выделившегося водорода
+                            </ToolTip>
+                        </Label.ToolTip>
                     </Label>
                     <TextBox Name="V1" IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="42" VerticalAlignment="Top" Width="120"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Thermometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
                     <Label Content="Температура опыта, [К]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-                      <Label.ToolTip>
-                        <ToolTip>
-                          Значение температуры написано справа.
-                        </ToolTip>
-                      </Label.ToolTip>
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Значение температуры написано справа.
+                            </ToolTip>
+                        </Label.ToolTip>
                     </Label>
                     <TextBox materialDesign:HintAssist.Hint="Введите температуру..." Name="T"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10">
                     <materialDesign:PackIcon Kind="Barometer" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
                     <Label Content="Атмосферное давление опыта, [Па]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-                      <Label.ToolTip>
-                        <ToolTip>
-                          Посчитайте давление в паскалях. Значение написано справа.
-                        </ToolTip>
-                      </Label.ToolTip>
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Посчитайте давление в паскалях. Значение написано справа.
+                            </ToolTip>
+                        </Label.ToolTip>
                     </Label>
                     <TextBox materialDesign:HintAssist.Hint="Введите давление опыта..." Name="Patm" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Water" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
                     <Label Content="Парциальное давление водяного пара, [Па]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-                      <Label.ToolTip>
-                        <ToolTip>
-                          Значение парциального давления написано справа.
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Значение парциального давления написано справа.
                             </ToolTip>
-                      </Label.ToolTip>
+                        </Label.ToolTip>
                     </Label>
                     <TextBox materialDesign:HintAssist.Hint="Введите давление водяного пара..." Name="Ph20" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10">
                     <materialDesign:PackIcon Kind="AlphaHBoxOutline" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF263F94"/>
                     <Label Content="Парциальное давление водорода, [Па]:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-                      <Label.ToolTip>
-                        <ToolTip>
-                          Разность атмосферного и парциального давления.
-                        </ToolTip>
-                      </Label.ToolTip>
+                        <Label.ToolTip>
+                            <ToolTip>
+                                Разность атмосферного и парциального давления.
+                            </ToolTip>
+                        </Label.ToolTip>
                     </Label>
                     <TextBox materialDesign:HintAssist.Hint="Введите давление водорода..." Name="Ph" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                 </StackPanel>

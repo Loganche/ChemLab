@@ -98,7 +98,7 @@
                 </StackPanel>
             </Grid>
 
-            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="20 10" Source="orda_sosatb.png"/>
+            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="20 10" Source="logo.png"/>
             <Button Content="Далее" HorizontalAlignment="Right" Margin="20 10" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18" Click="Button_Click"/>
         </Grid>
     </Border>

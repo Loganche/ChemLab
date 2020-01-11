@@ -19,7 +19,7 @@
                         ShadowDepth="3" />
         </Border.Effect>
         <Grid Background="LightGray">
-            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="10,0,0,10" Source="orda_sosatb.png"/>
+            <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Bottom" Width="150" Margin="10,0,0,10" Source="logo.png"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <materialDesign:PackIcon Kind="WarningBoxOutline" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF263F94"/>
                 <TextBlock Text="Введены неверные данные" FontSize="20" Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
