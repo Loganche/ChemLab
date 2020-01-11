@@ -26,12 +26,13 @@ namespace WpfApp1
         private ProtocolZnach protocolZnach;
         public int myMetal = -1;
         public double dav = -1;
+        public double davH = -1;
         public int temperature = -1;
         public DataTable dataTable = new DataTable();
         private CheckData checkData;
         private ChecDataMetal checDataMetal;
 
-        public End(int _myMetal, DataTable _dataTable, int _temperature, double _dav)
+        public End(int _myMetal, DataTable _dataTable, int _temperature, double _dav, double _davH)
         {
             InitializeComponent();
 
@@ -39,8 +40,8 @@ namespace WpfApp1
             dataTable = _dataTable;
             temperature = _temperature;
             dav = _dav;
+            davH = _davH;
         }
-
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             try
@@ -75,7 +76,7 @@ namespace WpfApp1
             double V_dataBase = Convert.ToDouble(dataTable.Rows[myMetal].ItemArray.GetValue(3).ToString());
             String name_metal = dataTable.Rows[myMetal].ItemArray.GetValue(0).ToString();
 
-            V0_need = ((98632.7 * V_dataBase) / 296.0) * (273.0 / 101325.0);
+            V0_need = ((davH * V_dataBase) / (273.0 + temperature)) * (273.0 / 101325.0);
             Mek_need = (M_dataBase * 11.2) / V0_need;
             Mat_need = Z_dataBase * Mek_need;
 

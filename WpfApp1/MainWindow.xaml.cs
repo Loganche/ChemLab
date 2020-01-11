@@ -20,7 +20,7 @@ using System.Data.SQLite;
 using System.Data;
 
 namespace WpfApp1
-{   
+{
     public partial class MainWindow : System.Windows.Window
     {
         private String DbFileName;
@@ -52,7 +52,7 @@ namespace WpfApp1
             private SFML.Graphics.Image image;
             private String name;
             private bool object_movement;
-	        public Sprite sprite = new Sprite();
+            public Sprite sprite = new Sprite();
             public Item(String filePath, Vector2f _position, IntRect rect, bool _object_movement, String _name)
             {
                 object_movement = _object_movement;
@@ -81,7 +81,7 @@ namespace WpfApp1
             public void SetNewSprite(String filePath, Vector2f _position, IntRect rect, bool _object_movement)
             {
                 image = new SFML.Graphics.Image(filePath);
-                
+
                 image.CreateMaskFromColor(Color.White);
 
                 texture = new Texture(image);
@@ -161,9 +161,7 @@ namespace WpfApp1
             /*
              * image = new SFML.Graphics.Image(filePath);
                 image.CreateMaskFromColor(Color.White);
-
                 texture = new Texture(image);
-
                 sprite.Texture = texture;
                 sprite.TextureRect = rect;
                 sprite.Position = _position;
@@ -193,7 +191,7 @@ namespace WpfApp1
                     image = new SFML.Graphics.Image("images/640x480/Termometer_18.png");
                     break;
             }
-            
+
             image.CreateMaskFromColor(Color.White);
 
             texture_temp = new Texture(image);
@@ -421,7 +419,7 @@ namespace WpfApp1
             M_dbConn.Close();
 
             PROTOCOL protocol = new PROTOCOL(myMetal, dataTable, temperature);
-         
+
             protocol.Show();
             this.Close();
         }
