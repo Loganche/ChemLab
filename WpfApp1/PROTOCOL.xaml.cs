@@ -73,11 +73,43 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //this.Patm.Text != "101441,3" || this.Ph20.Text != "2808,6" || this.Ph.Text != "98632,7"
-            if (this.T.Text == (273 + temperature).ToString() && (this.Patm.Text == "101441.3" || this.Patm.Text == "101441,3") && double.Parse(this.Ph20.Text, System.Globalization.CultureInfo.InvariantCulture) == dav && (this.Ph.Text == "98632.7" || this.Ph.Text == "98632,7"))
+            if (this.T.Text == (273 + temperature).ToString() && (this.Patm.Text == "101441.3" || this.Patm.Text == "101441,3") && double.Parse(this.Ph20.Text, System.Globalization.CultureInfo.InvariantCulture) == dav)
             {
-                End end = new End(myMetal, dataTable, temperature, dav);
-                end.Show();
-                this.Close();
+                switch (temperature)
+                {
+                    case 18:
+                        if (this.Ph.Text == "99377.8" || this.Ph.Text == "99377,8")
+                        {
+                            End end = new End(myMetal, dataTable, temperature, dav);
+                            end.Show();
+                            this.Close();
+                        }
+                        break;
+                    case 21:
+                        if (this.Ph.Text == "98955.3" || this.Ph.Text == "98955,3")
+                        {
+                            End end = new End(myMetal, dataTable, temperature, dav);
+                            end.Show();
+                            this.Close();
+                        }
+                        break;
+                    case 23:
+                        if (this.Ph.Text == "98632.7" || this.Ph.Text == "98632,7")
+                            {
+                                End end = new End(myMetal, dataTable, temperature, dav);
+                                end.Show();
+                                this.Close();
+                            }
+                        break;
+                    case 25:
+                        if (this.Ph.Text == "98274.1" || this.Ph.Text == "98274,1")
+                        {
+                            End end = new End(myMetal, dataTable, temperature, dav);
+                            end.Show();
+                            this.Close();
+                        }
+                        break;
+                }
             }
             else
             {
