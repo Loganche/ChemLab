@@ -30,10 +30,13 @@ namespace WpfApp1
         private SFML.System.Clock clock = new Clock();
         private int stage = 1;
         private List<Item> items = new List<Item>();
+        private Sprite sprite_temp = new Sprite();
+        private Texture texture_temp;
         private bool complete_stand = false;
         private Vector2f pos;
         private bool isMove = false;
         private int myMetal = -1;
+        private int temperature = -1;
         private RectangleShape rec;
         private float dX = 0;
         private float dY = 0;
@@ -154,6 +157,50 @@ namespace WpfApp1
             rec.OutlineColor = Color.Green;
             rec.OutlineThickness = 5;
             rec.FillColor = Color.Transparent;
+
+            /*
+             * image = new SFML.Graphics.Image(filePath);
+                image.CreateMaskFromColor(Color.White);
+
+                texture = new Texture(image);
+
+                sprite.Texture = texture;
+                sprite.TextureRect = rect;
+                sprite.Position = _position;
+             */
+
+            SFML.Graphics.Image image;
+
+            switch (random.Next() % 4)
+            {
+                case 0:
+                    temperature = 18;
+                    image = new SFML.Graphics.Image("images/640x480/Termometer_18.png");
+                    break;
+                case 1:
+                    temperature = 21;
+                    image = new SFML.Graphics.Image("images/640x480/Termometer_21.png");
+                    break;
+                case 2:
+                    temperature = 23;
+                    image = new SFML.Graphics.Image("images/640x480/Termometer_23.png");
+                    break;
+                case 3:
+                    temperature = 25;
+                    image = new SFML.Graphics.Image("images/640x480/Termometer_25.png");
+                    break;
+                default:
+                    image = new SFML.Graphics.Image("images/640x480/Termometer_18.png");
+                    break;
+            }
+            
+            image.CreateMaskFromColor(Color.White);
+
+            texture_temp = new Texture(image);
+
+            sprite_temp.Texture = texture_temp;
+            sprite_temp.TextureRect = new IntRect(0, 0, 43, 368); // 43 * 368
+            sprite_temp.Position = new Vector2f(0, 0);
         }
         private void CreateRenderWindow()
         {
@@ -348,6 +395,7 @@ namespace WpfApp1
             if (stage == 9)
                 this._renderWindow.Draw(measurement);
 
+            this._renderWindow.Draw(sprite_temp);
             this._renderWindow.Display();
         }
 
@@ -372,7 +420,7 @@ namespace WpfApp1
         {
             M_dbConn.Close();
 
-            PROTOCOL protocol = new PROTOCOL(myMetal, dataTable);
+            PROTOCOL protocol = new PROTOCOL(myMetal, dataTable, temperature);
          
             protocol.Show();
             this.Close();

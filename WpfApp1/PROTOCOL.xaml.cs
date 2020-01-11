@@ -21,15 +21,17 @@ namespace WpfApp1
     public partial class PROTOCOL : Window
     {
         public int myMetal = -1;
+        public int temperature = -1;
         public DataTable dataTable = new DataTable();
         private TableCheck tableCheck;
         private CheckData checkData;
-        public PROTOCOL(int _myMetal, DataTable _dataTable)
+        public PROTOCOL(int _myMetal, DataTable _dataTable, int _temperature)
         {
             InitializeComponent();
 
             myMetal = _myMetal;
             dataTable = _dataTable;
+            temperature = _temperature;
 
             this.m.Text = dataTable.Rows[myMetal].ItemArray.GetValue(1).ToString();
             this.V1.Text = dataTable.Rows[myMetal].ItemArray.GetValue(3).ToString();
@@ -49,7 +51,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //this.Patm.Text != "101441,3" || this.Ph20.Text != "2808,6" || this.Ph.Text != "98632,7"
-            if (this.T.Text == "296" && (this.Patm.Text == "101441.3" || this.Patm.Text == "101441,3") && (this.Ph20.Text == "2808.6" || this.Ph20.Text == "2808,6") && (this.Ph.Text == "98632.7" || this.Ph.Text == "98632,7"))
+            if (this.T.Text == (273 + temperature).ToString() && (this.Patm.Text == "101441.3" || this.Patm.Text == "101441,3") && (this.Ph20.Text == "2808.6" || this.Ph20.Text == "2808,6") && (this.Ph.Text == "98632.7" || this.Ph.Text == "98632,7"))
             {
                 End end = new End(myMetal, dataTable);
                 end.Show();
