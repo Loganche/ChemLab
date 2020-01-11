@@ -7,7 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="TableCheck" Height="475" Width="820"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown" ResizeMode="NoResize"
         Icon="icon.png" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
 
